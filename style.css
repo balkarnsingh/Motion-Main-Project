@@ -1,0 +1,193 @@
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: .05rem solid #fff;
+}
+
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  background-image: url(images/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body {
+  color: #fff;
+}
+/*
+ * Cover
+ */
+.cover {
+  padding: 0 1.5rem;
+}
+.cover .btn-lg {
+  padding: .75rem 1.25rem;
+  font-weight: 700;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 44px;
+    margin-top: 20px;
+}
+/* For display 'On' and 'Off' text */
+.switch:before, .switch:after {
+    position: absolute;
+    top: 18px;
+    font-size: 16px;
+    color: #666;
+}
+
+.switch:before {
+    content: 'Off';
+    left: -52px;
+}
+
+.switch:after {
+    content: 'On';
+    right: -48px;
+}
+/* slider path from off to on */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: -5px;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+/* big shinny circle in the switch */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 76px;
+    width: 76px;
+    left: 7px;
+    top: -20px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,f1f1f1+50,e1e1e1+51,f6f6f6+100;White+Gloss+%231 */
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
+    border-radius: 50%;
+    box-shadow: 3px 5px 10px 0 rgba(0,0,0,.4);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+/* Change slider color when light is selected */
+input:checked + .slider {
+    background-color: #333;
+}
+/*  translateX(65px) distance of slider when you click it */
+input:checked + .slider:before {
+    -webkit-transform: translateX(65px);
+    -ms-transform: translateX(65px);
+    transform: translateX(65px);
+    background-color: #1e99fa;
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+footer {
+    text-align: center;
+}
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.overlay.light {
+    background-color: rgba(200,200,200,.2);
+    animation: dark-to-white 5s;
+
+}
+@keyframes dark-to-white {
+    0% {
+        background-color: rgba(0, 0, 0, .5);
+    }
+    100% {
+        background-color: rgb(200, 200, 200, .1); 
+    }
+  }
+.overlay.dark{
+    background-color: rgba(0, 0, 0, .5);
+    animation: white-to-dark 5s;
+
+}
+@keyframes white-to-dark {
+    0% {
+        background-color: rgba(200,200,200,.1);
+    }
+    100% {
+        background-color: rgba(0, 0, 0, .5);
+    }
+}
+.bird{
+    align-self: auto;
+    width: 590px;
+    height: 400px;
+    position: relative;
+    background-image: url("images/sprite.png");
+    animation: playX .5s steps(4) infinite,
+               playY .5s steps(2) infinite;
+    float: left;
+    margin-top: 5%;
+  }
+  @keyframes playX {
+    from {background-position-x: 0px;}
+    to {background-position-x: -2393px;}
+  }
+
+  @keyframes playY {
+    from {background-position-y: 0px;}
+    to {background-position-y: -804px;}
+  }
+
+.bird.left {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+.bird.right {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+.loading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #ccc;
+    z-index: 1000;
+}
+#loading_canvas {
+    margin:22.5% auto;
+    display: block;
+}
